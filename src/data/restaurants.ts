@@ -12,6 +12,14 @@ export type Restaurant = {
   map: string;
 };
 
+export const RestaurantType = Object.freeze({
+  cafe: '카페',
+  china: '중식',
+  korea: '한식',
+  japan: '일식',
+  west: '양식',
+} as const);
+
 const restaurants: Restaurant[] = [
   ...cafes,
   ...chinas,
