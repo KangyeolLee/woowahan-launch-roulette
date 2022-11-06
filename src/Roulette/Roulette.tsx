@@ -5,8 +5,8 @@ const Roulette = () => {
   return (
     <Styled.RouletteWrapper>
       <Styled.RouletteList>
-        {restaurants.map((restaurant) => (
-          <Styled.RouletteListItem>
+        {restaurants.map((restaurant, idx) => (
+          <Styled.RouletteListItem key={`roulette-list-item-${idx}`}>
             {restaurant.name}
             <Styled.RestaurantBadge type={restaurant.type}>
               {RestaurantType[restaurant.type]}

@@ -13,8 +13,8 @@ const RADIO_INPUTS = [
 const LocationSelectors = () => {
   return (
     <Styled.RadioBoxWrapper>
-      {RADIO_INPUTS.map((input) => (
-        <Styled.RadioBoxLabel>
+      {RADIO_INPUTS.map((input, idx) => (
+        <Styled.RadioBoxLabel key={`radio-${RADIO_INPUT_NAME}-${idx}`}>
           <input type='radio' name={RADIO_INPUT_NAME} value={input.value} />
           <span>{input.location}</span>
         </Styled.RadioBoxLabel>
