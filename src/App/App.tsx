@@ -1,4 +1,5 @@
 import restaurants, { RestaurantType } from '../data/restaurants';
+import LocationSelectors from '../RadioBoxSelectors/LocationSelectors';
 import * as Styled from './style';
 
 function App() {
@@ -12,28 +13,9 @@ function App() {
           있어요!
         </li>
       </Styled.GuideList>
-      <Styled.RadioBoxWrapper>
-        <label>
-          <input type='radio' name='office' checked />
-          <span>큰집</span>
-        </label>
-        <label>
-          <input type='radio' name='office' />
-          <span>작은집</span>
-        </label>
-        <label>
-          <input type='radio' name='office' />
-          <span>더큰집</span>
-        </label>
-        <label>
-          <input type='radio' name='office' />
-          <span>루터회관</span>
-        </label>
-        <label>
-          <input type='radio' name='office' />
-          <span>전체</span>
-        </label>
-      </Styled.RadioBoxWrapper>
+
+      <LocationSelectors />
+
       <Styled.RouletteWrapper>
         <Styled.RouletteList>
           {restaurants.map((restaurant) => (

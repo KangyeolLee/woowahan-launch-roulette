@@ -17,14 +17,6 @@ export const GuideList = styled.ul`
   line-height: 24px;
 `;
 
-export const RadioBoxWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  padding: 12px;
-  border: 1px solid #ededed;
-  border-radius: 4px;
-`;
-
 export const RouletteWrapper = styled.div`
   display: flex;
   margin-top: 16px;
