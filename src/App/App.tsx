@@ -1,5 +1,5 @@
-import restaurants, { RestaurantType } from '../data/restaurants';
 import LocationSelectors from '../RadioBoxSelectors/LocationSelectors';
+import Roulette from '../Roulette';
 import * as Styled from './style';
 
 function App() {
@@ -15,21 +15,8 @@ function App() {
       </Styled.GuideList>
 
       <LocationSelectors />
+      <Roulette />
 
-      <Styled.RouletteWrapper>
-        <Styled.RouletteList>
-          {restaurants.map((restaurant) => (
-            <Styled.RouletteListItem>
-              {restaurant.name}
-              <Styled.RestaurantBadge type={restaurant.type}>
-                {RestaurantType[restaurant.type]}
-              </Styled.RestaurantBadge>
-            </Styled.RouletteListItem>
-          ))}
-          <Styled.BlurOverlay />
-        </Styled.RouletteList>
-        <Styled.RouletteResult>...만드는중...</Styled.RouletteResult>
-      </Styled.RouletteWrapper>
       <Styled.ButtonWrapper>
         <button>시작</button>
       </Styled.ButtonWrapper>
