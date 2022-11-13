@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { Context } from '../Context/ContextProvider';
 import restaurants, { RestaurantType } from '../data/restaurants';
 import * as Styled from './style';
 
 const Roulette = () => {
+  const { location } = useContext(Context);
   const [start, setStart] = useState(false);
 
-  const dummys = [...restaurants, ...restaurants, ...restaurants];
+  const dummys = [...restaurants, ...restaurants, ...restaurants].filter(
+    (restaurant) =>
+      location === '전체' ? true : restaurant.location === location
+  );
 
   return (
     <Styled.RouletteWrapper>
