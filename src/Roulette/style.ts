@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { RestaurantType } from '../data/restaurants';
 
 export const RouletteWrapper = styled.div`
@@ -16,25 +16,29 @@ export const RouletteList = styled.div`
   list-style-type: none;
   min-width: 180px;
   max-width: 180px;
-  max-height: 380px;
+  height: 66px;
   overflow: hidden;
   user-select: none;
 `;
 
-export const BlurOverlay = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30px;
-  background: linear-gradient(180deg, rgba(246, 246, 246, 0) 0%, #fff 71.35%);
+export const RouletteBelt = styled.div<{ $start: boolean; $count: number }>`
+  transition: transform 1s ease-in-out;
+
+  ${({ $start, $count }) =>
+    $start &&
+    css`
+      transform: translateY(-${82 * $count}px);
+    `}
 `;
 
 export const RouletteListItem = styled.li`
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px;
   border-radius: 4px;
   background-color: #eee;
+  height: 50px;
 
   & + & {
     margin-top: 16px;
@@ -54,6 +58,7 @@ export const RestaurantBadge = styled.span<{
   type: keyof typeof RestaurantType;
 }>`
   display: flex;
+  height: 16px;
   justify-content: center;
   align-items: center;
   margin-left: 6px;
@@ -65,6 +70,7 @@ export const RestaurantBadge = styled.span<{
 `;
 
 export const RouletteResult = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,4 +79,14 @@ export const RouletteResult = styled.div`
   border: 1px solid #ededed;
   border-radius: 4px;
   width: 100%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 38px;
+    left: -10px;
+    border-right: 10px solid #111;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
 `;
