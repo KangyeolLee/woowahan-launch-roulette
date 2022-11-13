@@ -13,13 +13,8 @@ function App() {
           있어요!
         </li>
       </Styled.GuideList>
-
       <LocationSelectors />
       <Roulette />
-
-      <Styled.ButtonWrapper>
-        <button>시작</button>
-      </Styled.ButtonWrapper>
     </Styled.Container>
   );
 }

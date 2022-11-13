@@ -15,9 +15,3 @@ export const GuideList = styled.ul`
   background-color: #ededed;
   line-height: 24px;
 `;
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 16px;
-`;
