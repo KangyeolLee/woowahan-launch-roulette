@@ -14,8 +14,8 @@ export const RouletteList = styled.div`
   border: 1px solid #ededed;
   border-radius: 4px;
   list-style-type: none;
-  min-width: 180px;
-  max-width: 180px;
+  min-width: 200px;
+  max-width: 200px;
   height: 66px;
   overflow: hidden;
   user-select: none;
@@ -69,7 +69,7 @@ export const RestaurantBadge = styled.span<{
   color: #fff;
 `;
 
-export const RouletteResult = styled.div`
+export const RouletteButtonWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -88,5 +88,19 @@ export const RouletteResult = styled.div`
     border-right: 10px solid #111;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
+  }
+`;
+
+export const RouletteButton = styled.button`
+  border: 0;
+  outline: 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.75;
+  }
+  & + & {
+    margin-left: 16px;
   }
 `;

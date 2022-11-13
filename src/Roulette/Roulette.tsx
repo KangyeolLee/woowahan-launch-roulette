@@ -26,10 +26,14 @@ const Roulette = () => {
           ))}
         </Styled.RouletteBelt>
       </Styled.RouletteList>
-      <Styled.RouletteResult>
-        <button onClick={() => setStart(true)}>시작</button>
-        <button onClick={() => setStart(false)}>리셋</button>
-      </Styled.RouletteResult>
+      <Styled.RouletteButtonWrapper>
+        <Styled.RouletteButton onClick={() => setStart(true)}>
+          시작
+        </Styled.RouletteButton>
+        <Styled.RouletteButton onClick={() => setStart(false)}>
+          리셋
+        </Styled.RouletteButton>
+      </Styled.RouletteButtonWrapper>
     </Styled.RouletteWrapper>
   );
 };

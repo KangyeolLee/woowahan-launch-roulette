@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 
 const defaultValue = {
-  location: '큰집',
+  location: '전체',
   handleSelectLocation: (location: string) => console.log('need init'),
 };
 
