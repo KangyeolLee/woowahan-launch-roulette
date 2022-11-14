@@ -1,17 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
-import { getRestaurants } from '../api/restaurants';
+import { getRestaurants, Restaurant, RestaurantType } from '../api/restaurants';
 import { Context } from '../Context/ContextProvider';
-import { Restaurant, RestaurantType } from '../data/restaurants';
 import * as Styled from './style';
 
 const Roulette = () => {
   const { location } = useContext(Context);
   const [start, setStart] = useState(false);
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+  const [restaurants, setRestaurants] = useState<RestaurantType[]>([]);
 
-  const dummys = [...restaurants, ...restaurants, ...restaurants].filter(
-    (restaurant) =>
-      location === '전체' ? true : restaurant.location === location
+  const filteredRestaurants = restaurants.filter((restaurant) =>
+    location === '전체' ? true : restaurant.location === location
   );
 
   useEffect(() => {
@@ -25,12 +23,15 @@ const Roulette = () => {
   return (
     <Styled.RouletteWrapper>
       <Styled.RouletteList>
-        <Styled.RouletteBelt $start={start} $count={dummys.length - 1}>
-          {dummys.map((restaurant, idx) => (
+        <Styled.RouletteBelt
+          $start={start}
+          $count={filteredRestaurants.length - 1}
+        >
+          {filteredRestaurants.map((restaurant, idx) => (
             <Styled.RouletteListItem key={`roulette-list-item-${idx}`}>
               {restaurant.name}
-              <Styled.RestaurantBadge type={restaurant.type}>
-                {RestaurantType[restaurant.type]}
+              <Styled.RestaurantBadge type={Restaurant[restaurant.type]}>
+                {restaurant.type}
               </Styled.RestaurantBadge>
             </Styled.RouletteListItem>
           ))}

@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { RestaurantType } from '../data/restaurants';
+import { Restaurant } from '../api/restaurants';
+
+type RestaurantType = typeof Restaurant[keyof typeof Restaurant];
 
 export const RouletteWrapper = styled.div`
   display: flex;
@@ -23,6 +25,7 @@ export const RouletteList = styled.div`
 
 export const RouletteBelt = styled.div<{ $start: boolean; $count: number }>`
   transition: transform 1s ease-in-out;
+  content-visibility: auto;
 
   ${({ $start, $count }) =>
     $start &&
@@ -39,23 +42,26 @@ export const RouletteListItem = styled.li`
   border-radius: 4px;
   background-color: #eee;
   height: 50px;
+  content-visibility: auto;
 
   & + & {
     margin-top: 16px;
   }
 `;
 
-const RestaurantBackgroundColors: Record<keyof typeof RestaurantType, string> =
-  {
-    china: 'red',
-    cafe: 'green',
-    korea: 'blue',
-    japan: 'purple',
-    west: 'brown',
-  };
+const RestaurantBackgroundColors: Record<RestaurantType, string> = {
+  china: 'red',
+  cafe: 'green',
+  korea: 'blue',
+  japan: 'purple',
+  west: 'brown',
+  betnam: 'brown',
+  bunsic: 'orrange',
+  alcohol: 'yellow',
+};
 
 export const RestaurantBadge = styled.span<{
-  type: keyof typeof RestaurantType;
+  type: RestaurantType;
 }>`
   display: flex;
   height: 16px;
