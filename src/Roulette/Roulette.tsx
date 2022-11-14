@@ -1,16 +1,26 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { getRestaurants } from '../api/restaurants';
 import { Context } from '../Context/ContextProvider';
-import restaurants, { RestaurantType } from '../data/restaurants';
+import { Restaurant, RestaurantType } from '../data/restaurants';
 import * as Styled from './style';
 
 const Roulette = () => {
   const { location } = useContext(Context);
   const [start, setStart] = useState(false);
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
 
   const dummys = [...restaurants, ...restaurants, ...restaurants].filter(
     (restaurant) =>
       location === '전체' ? true : restaurant.location === location
   );
+
+  useEffect(() => {
+    (async () => {
+      const res = await getRestaurants();
+      const restaurants = res.map((r) => r.fields);
+      setRestaurants(restaurants);
+    })();
+  }, []);
 
   return (
     <Styled.RouletteWrapper>
