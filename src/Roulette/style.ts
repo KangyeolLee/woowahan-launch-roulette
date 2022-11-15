@@ -86,9 +86,10 @@ export const RestaurantBadge = styled.span<{
   color: #fff;
 `;
 
-export const RouletteButtonWrapper = styled.div`
+export const RouletteGameStarter = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-left: 16px;
@@ -108,6 +109,12 @@ export const RouletteButtonWrapper = styled.div`
   }
 `;
 
+export const RouletteButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const RouletteButton = styled.button`
   border: 0;
   outline: 0;
@@ -120,4 +127,10 @@ export const RouletteButton = styled.button`
   & + & {
     margin-left: 16px;
   }
+`;
+
+export const WarningText = styled.span`
+  font-size: 14px;
+  color: red;
+  margin-top: 8px;
 `;

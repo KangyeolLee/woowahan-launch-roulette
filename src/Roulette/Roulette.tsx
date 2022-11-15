@@ -49,6 +49,8 @@ const Roulette = () => {
     setStart(false);
   }, [location, type]);
 
+  const isDisabledStartButton = filteredRestaurants.length <= 1;
+
   return (
     <Styled.RouletteWrapper>
       <Styled.RouletteList>
@@ -67,14 +69,24 @@ const Roulette = () => {
           ))}
         </Styled.RouletteBelt>
       </Styled.RouletteList>
-      <Styled.RouletteButtonWrapper>
-        <Styled.RouletteButton onClick={handleClickStart}>
-          시작
-        </Styled.RouletteButton>
-        <Styled.RouletteButton onClick={handleClickReset}>
-          리셋
-        </Styled.RouletteButton>
-      </Styled.RouletteButtonWrapper>
+      <Styled.RouletteGameStarter>
+        <Styled.RouletteButtonWrapper>
+          <Styled.RouletteButton
+            onClick={handleClickStart}
+            disabled={isDisabledStartButton}
+          >
+            시작
+          </Styled.RouletteButton>
+          <Styled.RouletteButton onClick={handleClickReset}>
+            리셋
+          </Styled.RouletteButton>
+        </Styled.RouletteButtonWrapper>
+        {isDisabledStartButton && (
+          <Styled.WarningText>
+            룰렛을 돌리기 위한 식당이 없어요...
+          </Styled.WarningText>
+        )}
+      </Styled.RouletteGameStarter>
     </Styled.RouletteWrapper>
   );
 };
