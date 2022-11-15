@@ -1,5 +1,6 @@
 import ContextProvider from '../Context/ContextProvider';
 import LocationSelectors from '../RadioBoxSelectors/LocationSelectors';
+import TypeSelectors from '../RadioBoxSelectors/TypeSelectors';
 import Roulette from '../Roulette';
 import * as Styled from './style';
 
@@ -16,6 +17,7 @@ function App() {
       </Styled.GuideList>
       <ContextProvider>
         <LocationSelectors />
+        <TypeSelectors />
         <Roulette />
       </ContextProvider>
     </Styled.Container>
