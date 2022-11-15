@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../../Context/ContextProvider';
-import * as Styled from './style';
+import * as Styled from '../style';
 
 const RADIO_INPUT_NAME = 'office';
 
