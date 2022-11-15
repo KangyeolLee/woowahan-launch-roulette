@@ -29,7 +29,7 @@ const Roulette = () => {
   };
 
   const handleClickStart = () => {
-    shuffle();
+    !start && shuffle();
     setStart(true);
   };
 
