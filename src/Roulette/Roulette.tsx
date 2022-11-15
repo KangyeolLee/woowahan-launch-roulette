@@ -12,6 +12,27 @@ const Roulette = () => {
     location === '전체' ? true : restaurant.location === location
   );
 
+  const shuffle = () => {
+    const rest = restaurants.slice();
+    let len = rest.length;
+
+    while (len) {
+      const i = Math.floor(Math.random() * len--);
+      [rest[len], rest[i]] = [rest[i], rest[len]];
+    }
+
+    setRestaurants(rest);
+  };
+
+  const handleClickStart = () => {
+    shuffle();
+    setStart(true);
+  };
+
+  const handleClickReset = () => {
+    setStart(false);
+  };
+
   useEffect(() => {
     (async () => {
       const res = await getRestaurants();
@@ -20,6 +41,10 @@ const Roulette = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    setStart(false);
+  }, [location]);
+
   return (
     <Styled.RouletteWrapper>
       <Styled.RouletteList>
@@ -27,6 +52,7 @@ const Roulette = () => {
           $start={start}
           $count={filteredRestaurants.length - 1}
         >
+          <Styled.RouletteListEmptyItem>🎁</Styled.RouletteListEmptyItem>
           {filteredRestaurants.map((restaurant, idx) => (
             <Styled.RouletteListItem key={`roulette-list-item-${idx}`}>
               {restaurant.name}
@@ -38,10 +64,10 @@ const Roulette = () => {
         </Styled.RouletteBelt>
       </Styled.RouletteList>
       <Styled.RouletteButtonWrapper>
-        <Styled.RouletteButton onClick={() => setStart(true)}>
+        <Styled.RouletteButton onClick={handleClickStart}>
           시작
         </Styled.RouletteButton>
-        <Styled.RouletteButton onClick={() => setStart(false)}>
+        <Styled.RouletteButton onClick={handleClickReset}>
           리셋
         </Styled.RouletteButton>
       </Styled.RouletteButtonWrapper>

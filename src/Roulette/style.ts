@@ -24,12 +24,12 @@ export const RouletteList = styled.div`
 `;
 
 export const RouletteBelt = styled.div<{ $start: boolean; $count: number }>`
-  transition: transform 1s ease-in-out;
   content-visibility: auto;
 
   ${({ $start, $count }) =>
     $start &&
     css`
+      transition: transform 3s ease-in-out;
       transform: translateY(-${82 * $count}px);
     `}
 `;
@@ -47,6 +47,17 @@ export const RouletteListItem = styled.li`
   & + & {
     margin-top: 16px;
   }
+`;
+
+export const RouletteListEmptyItem = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #eee;
+  height: 50px;
+  margin-bottom: 16px;
 `;
 
 const RestaurantBackgroundColors: Record<RestaurantType, string> = {
