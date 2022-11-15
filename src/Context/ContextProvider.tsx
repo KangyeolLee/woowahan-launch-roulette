@@ -2,6 +2,7 @@ import React, {
   createContext,
   PropsWithChildren,
   useCallback,
+  useMemo,
   useState,
 } from 'react';
 
@@ -26,9 +27,15 @@ const ContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setType(type);
   }, []);
 
+  const memoizedState = useMemo(() => ({ location, type }), [location, type]);
+
   return (
     <Context.Provider
-      value={{ location, type, handleSelectLocation, handleSelectType }}
+      value={{
+        ...memoizedState,
+        handleSelectLocation,
+        handleSelectType,
+      }}
     >
       {children}
     </Context.Provider>
