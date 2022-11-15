@@ -4,13 +4,17 @@ import { Context } from '../Context/ContextProvider';
 import * as Styled from './style';
 
 const Roulette = () => {
-  const { location } = useContext(Context);
+  const { location, type } = useContext(Context);
   const [start, setStart] = useState(false);
   const [restaurants, setRestaurants] = useState<RestaurantType[]>([]);
 
-  const filteredRestaurants = restaurants.filter((restaurant) =>
-    location === '전체' ? true : restaurant.location === location
-  );
+  const filteredRestaurants = restaurants
+    .filter((restaurant) =>
+      location === '전체' ? true : restaurant.location === location
+    )
+    .filter((restaurant) =>
+      type === '전체' ? true : restaurant.type === type
+    );
 
   const shuffle = () => {
     const rest = restaurants.slice();
@@ -43,7 +47,7 @@ const Roulette = () => {
 
   useEffect(() => {
     setStart(false);
-  }, [location]);
+  }, [location, type]);
 
   return (
     <Styled.RouletteWrapper>
