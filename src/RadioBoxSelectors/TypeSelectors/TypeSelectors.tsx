@@ -36,4 +36,4 @@ const TypeSelectors = () => {
   );
 };
 
-export default TypeSelectors;
+export default React.memo(TypeSelectors);

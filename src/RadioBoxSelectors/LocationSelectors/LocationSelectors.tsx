@@ -31,4 +31,4 @@ const LocationSelectors = () => {
   );
 };
 
-export default LocationSelectors;
+export default React.memo(LocationSelectors);

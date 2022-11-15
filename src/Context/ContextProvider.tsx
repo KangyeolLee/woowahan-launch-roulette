@@ -1,7 +1,6 @@
 import React, {
   createContext,
   PropsWithChildren,
-  useCallback,
   useMemo,
   useState,
 } from 'react';
@@ -19,27 +18,17 @@ const ContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [location, setLocation] = useState(defaultValue.location);
   const [type, setType] = useState(defaultValue.type);
 
-  const handleSelectLocation = useCallback((location: string) => {
-    setLocation(location);
-  }, []);
-
-  const handleSelectType = useCallback((type: string) => {
-    setType(type);
-  }, []);
-
-  const memoizedState = useMemo(() => ({ location, type }), [location, type]);
-
-  return (
-    <Context.Provider
-      value={{
-        ...memoizedState,
-        handleSelectLocation,
-        handleSelectType,
-      }}
-    >
-      {children}
-    </Context.Provider>
+  const memoizedState = useMemo(
+    () => ({
+      location,
+      type,
+      handleSelectLocation: (location: string) => setLocation(location),
+      handleSelectType: (type: string) => setType(type),
+    }),
+    [location, type]
   );
+
+  return <Context.Provider value={memoizedState}>{children}</Context.Provider>;
 };
 
 export default ContextProvider;
