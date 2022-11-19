@@ -86,7 +86,7 @@ export const RestaurantBadge = styled.span<{
   color: #fff;
 `;
 
-export const RouletteGameStarter = styled.div`
+export const RouletteResult = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -107,6 +107,15 @@ export const RouletteGameStarter = styled.div`
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
   }
+`;
+
+export const RouletteGameStarter = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 
 export const RouletteButtonWrapper = styled.div`

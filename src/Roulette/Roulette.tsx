@@ -6,6 +6,7 @@ import * as Styled from './style';
 const Roulette = () => {
   const { location, type } = useContext(Context);
   const [start, setStart] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const [restaurants, setRestaurants] = useState<RestaurantType[]>([]);
 
   const filteredRestaurants = restaurants
@@ -31,10 +32,12 @@ const Roulette = () => {
   const handleClickStart = () => {
     !start && shuffle();
     setStart(true);
+    setTimeout(() => setShowResult(true), 3000);
   };
 
   const handleClickReset = () => {
     setStart(false);
+    setShowResult(false);
   };
 
   useEffect(() => {
@@ -52,23 +55,28 @@ const Roulette = () => {
   const isDisabledStartButton = filteredRestaurants.length <= 1;
 
   return (
-    <Styled.RouletteWrapper>
-      <Styled.RouletteList>
-        <Styled.RouletteBelt
-          $start={start}
-          $count={filteredRestaurants.length - 1}
-        >
-          <Styled.RouletteListEmptyItem>🎁</Styled.RouletteListEmptyItem>
-          {filteredRestaurants.map((restaurant, idx) => (
-            <Styled.RouletteListItem key={`roulette-list-item-${idx}`}>
-              {restaurant.name}
-              <Styled.RestaurantBadge type={Restaurant[restaurant.type]}>
-                {restaurant.type}
-              </Styled.RestaurantBadge>
-            </Styled.RouletteListItem>
-          ))}
-        </Styled.RouletteBelt>
-      </Styled.RouletteList>
+    <>
+      <Styled.RouletteWrapper>
+        <Styled.RouletteList>
+          <Styled.RouletteBelt
+            $start={start}
+            $count={filteredRestaurants.length - 1}
+          >
+            <Styled.RouletteListEmptyItem>🎁</Styled.RouletteListEmptyItem>
+            {filteredRestaurants.map((restaurant, idx) => (
+              <Styled.RouletteListItem key={`roulette-list-item-${idx}`}>
+                {restaurant.name}
+                <Styled.RestaurantBadge type={Restaurant[restaurant.type]}>
+                  {restaurant.type}
+                </Styled.RestaurantBadge>
+              </Styled.RouletteListItem>
+            ))}
+          </Styled.RouletteBelt>
+        </Styled.RouletteList>
+        <Styled.RouletteResult>
+          {showResult && filteredRestaurants.at(-1)?.best}
+        </Styled.RouletteResult>
+      </Styled.RouletteWrapper>
       <Styled.RouletteGameStarter>
         <Styled.RouletteButtonWrapper>
           <Styled.RouletteButton
@@ -87,7 +95,7 @@ const Roulette = () => {
           </Styled.WarningText>
         )}
       </Styled.RouletteGameStarter>
-    </Styled.RouletteWrapper>
+    </>
   );
 };
 
