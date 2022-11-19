@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { getRestaurants, Restaurant, RestaurantType } from '../api/restaurants';
 import { Context } from '../Context/ContextProvider';
 import * as Styled from './style';
@@ -8,6 +8,7 @@ const Roulette = () => {
   const [start, setStart] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [restaurants, setRestaurants] = useState<RestaurantType[]>([]);
+  const timerId = useRef<number>();
 
   const filteredRestaurants = restaurants
     .filter((restaurant) =>
@@ -32,12 +33,13 @@ const Roulette = () => {
   const handleClickStart = () => {
     !start && shuffle();
     setStart(true);
-    setTimeout(() => setShowResult(true), 3000);
+    timerId.current = window.setTimeout(() => setShowResult(true), 3000);
   };
 
   const handleClickReset = () => {
     setStart(false);
     setShowResult(false);
+    timerId.current && window.clearTimeout(timerId.current);
   };
 
   useEffect(() => {
