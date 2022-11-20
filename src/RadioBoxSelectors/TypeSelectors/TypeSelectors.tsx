@@ -22,7 +22,7 @@ const TypeSelectors = () => {
     <Styled.RadioBoxWrapper>
       {RADIO_INPUTS.map((input, idx) => (
         <Styled.RadioBoxLabel key={`radio-${RADIO_INPUNT_NAME}-${idx}`}>
-          <input
+          <Styled.RadioButtonInput
             type='radio'
             name={RADIO_INPUNT_NAME}
             value={input.value}

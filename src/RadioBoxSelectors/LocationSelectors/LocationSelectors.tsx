@@ -17,7 +17,7 @@ const LocationSelectors = () => {
     <Styled.RadioBoxWrapper>
       {RADIO_INPUTS.map((input, idx) => (
         <Styled.RadioBoxLabel key={`radio-${RADIO_INPUT_NAME}-${idx}`}>
-          <input
+          <Styled.RadioButtonInput
             type='radio'
             name={RADIO_INPUT_NAME}
             value={input.value}
