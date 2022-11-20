@@ -6,12 +6,13 @@ export const Container = styled.div`
 
 export const Header = styled.h1`
   text-align: center;
+  font-family: 'BMEULJIRO', sans-serif;
 `;
 
 export const GuideList = styled.ul`
   list-style-position: inside;
   padding: 12px;
   border-radius: 4px;
-  background-color: #ededed;
+  background-color: rgb(243, 245, 247);
   line-height: 24px;
 `;
