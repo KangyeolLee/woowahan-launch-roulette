@@ -4,7 +4,7 @@ export const RadioBoxWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding: 12px;
-  border: 1px solid #ededed;
+  background-color: rgb(243, 245, 247);
   border-radius: 4px;
 
   & + & {

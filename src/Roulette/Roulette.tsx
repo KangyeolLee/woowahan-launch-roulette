@@ -81,15 +81,15 @@ const Roulette = () => {
       </Styled.RouletteWrapper>
       <Styled.RouletteGameStarter>
         <Styled.RouletteButtonWrapper>
-          <Styled.RouletteButton
+          <Styled.RouletteStartButton
             onClick={handleClickStart}
             disabled={isDisabledStartButton}
           >
             시작
-          </Styled.RouletteButton>
-          <Styled.RouletteButton onClick={handleClickReset}>
+          </Styled.RouletteStartButton>
+          <Styled.RouletteResetButton onClick={handleClickReset}>
             리셋
-          </Styled.RouletteButton>
+          </Styled.RouletteResetButton>
         </Styled.RouletteButtonWrapper>
         {isDisabledStartButton && (
           <Styled.WarningText>

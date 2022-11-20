@@ -13,7 +13,7 @@ export const RouletteList = styled.div`
   display: flex;
   flex-direction: column;
   padding: 12px;
-  border: 1px solid #ededed;
+  border: 1px solid rgb(243, 245, 247);
   border-radius: 4px;
   list-style-type: none;
   min-width: 200px;
@@ -40,9 +40,10 @@ export const RouletteListItem = styled.li`
   justify-content: center;
   padding: 8px;
   border-radius: 4px;
-  background-color: #eee;
+  background-color: rgb(243, 245, 247);
   height: 50px;
   content-visibility: auto;
+  font-weight: bold;
 
   & + & {
     margin-top: 16px;
@@ -55,7 +56,7 @@ export const RouletteListEmptyItem = styled.li`
   justify-content: center;
   padding: 8px;
   border-radius: 4px;
-  background-color: #eee;
+  background-color: rgb(243, 245, 247);
   height: 50px;
   margin-bottom: 16px;
 `;
@@ -84,6 +85,7 @@ export const RestaurantBadge = styled.span<{
   border-radius: 4px;
   background-color: ${({ type }) => RestaurantBackgroundColors[type]};
   color: #fff;
+  font-weight: normal;
 `;
 
 export const RouletteResult = styled.div`
@@ -94,7 +96,7 @@ export const RouletteResult = styled.div`
   align-items: center;
   margin-left: 16px;
   border-radius: 4px;
-  border: 1px solid #ededed;
+  border: 1px solid rgb(243, 245, 247);
   border-radius: 4px;
   width: 100%;
 
@@ -136,6 +138,18 @@ export const RouletteButton = styled.button`
   & + & {
     margin-left: 16px;
   }
+`;
+
+export const RouletteStartButton = styled(RouletteButton)`
+  background-color: #2ac5c0;
+  color: #fff;
+  font-weight: bold;
+`;
+
+export const RouletteResetButton = styled(RouletteButton)`
+  background-color: #ff4032;
+  color: #fff;
+  font-weight: bold;
 `;
 
 export const WarningText = styled.span`
