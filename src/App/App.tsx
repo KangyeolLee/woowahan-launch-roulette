@@ -1,7 +1,7 @@
-import ContextProvider from '../Context/ContextProvider';
-import LocationSelectors from '../RadioBoxSelectors/LocationSelectors';
-import TypeSelectors from '../RadioBoxSelectors/TypeSelectors';
-import Roulette from '../Roulette';
+import ContextProvider from '../context/ContextProvider';
+import LocationSelectors from '../components/RadioBoxSelectors/LocationSelectors';
+import TypeSelectors from '../components/RadioBoxSelectors/TypeSelectors';
+import Roulette from '../components/Roulette';
 import * as Styled from './style';
 
 function App() {

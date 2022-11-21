@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Context } from '../../Context/ContextProvider';
+import { Context } from '../../../context/ContextProvider';
 import * as Styled from '../style';
 
 const RADIO_INPUNT_NAME = 'type';

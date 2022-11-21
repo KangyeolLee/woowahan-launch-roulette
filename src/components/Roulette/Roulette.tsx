@@ -1,5 +1,5 @@
-import { Restaurant } from '../api/restaurants';
-import useRoulette from '../hooks/useRoulette';
+import { Restaurant } from '../../api/restaurants';
+import useRoulette from '../../hooks/useRoulette';
 import * as Styled from './style';
 
 const Roulette = () => {

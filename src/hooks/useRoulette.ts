@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { getRestaurants, RestaurantType } from '../api/restaurants';
-import { Context } from '../Context/ContextProvider';
+import { Context } from '../context/ContextProvider';
 
 const useRoulette = () => {
   const { location, type } = useContext(Context);

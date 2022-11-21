@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Restaurant } from '../api/restaurants';
+import { Restaurant } from '../../api/restaurants';
 
 type RestaurantType = typeof Restaurant[keyof typeof Restaurant];
 
