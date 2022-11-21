@@ -18,9 +18,11 @@ const Roulette = () => {
         <Styled.RouletteList>
           <Styled.RouletteBelt
             $start={start}
-            $count={filteredRestaurants.length - 1}
+            $count={filteredRestaurants.length}
           >
-            <Styled.RouletteListEmptyItem>🎁</Styled.RouletteListEmptyItem>
+            <Styled.RouletteListEmptyItem>
+              🎁 START 🎁
+            </Styled.RouletteListEmptyItem>
             {filteredRestaurants.map((restaurant, idx) => (
               <Styled.RouletteListItem key={`roulette-list-item-${idx}`}>
                 {restaurant.name}
@@ -32,7 +34,21 @@ const Roulette = () => {
           </Styled.RouletteBelt>
         </Styled.RouletteList>
         <Styled.RouletteResult>
-          {showResult && filteredRestaurants.at(-1)?.best}
+          <Styled.ResultMenus showResult={showResult}>
+            <Styled.ResultMenuDescriptionTag color='#282A3A'>
+              대표메뉴
+            </Styled.ResultMenuDescriptionTag>
+            <span>{filteredRestaurants.at(-1)?.best ?? '-'}</span>
+          </Styled.ResultMenus>
+          <Styled.ResultMenus showResult={showResult}>
+            <Styled.ResultMenuMap
+              href={
+                filteredRestaurants.at(-1)?.map ?? 'https://map.naver.com/v5'
+              }
+            >
+              가게 상세정보 보러가기
+            </Styled.ResultMenuMap>
+          </Styled.ResultMenus>
         </Styled.RouletteResult>
       </Styled.RouletteWrapper>
       <Styled.RouletteGameStarter>

@@ -5,10 +5,14 @@ type RestaurantType = typeof Restaurant[keyof typeof Restaurant];
 
 export const RouletteWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 16px;
 `;
 
 export const RouletteList = styled.div`
+  margin-top: 40px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -62,14 +66,14 @@ export const RouletteListEmptyItem = styled.li`
 `;
 
 const RestaurantBackgroundColors: Record<RestaurantType, string> = {
-  china: 'red',
-  cafe: 'green',
-  korea: 'blue',
-  japan: 'purple',
-  west: 'brown',
-  betnam: 'brown',
-  bunsic: 'orrange',
-  alcohol: 'yellow',
+  china: '#9C254D',
+  cafe: '#F7A4A4',
+  korea: '#00005C',
+  japan: '#8EC3B0',
+  west: '#E14D2A',
+  betnam: '#251B37',
+  bunsic: '#5C2E7E',
+  alcohol: '#562B08',
 };
 
 export const RestaurantBadge = styled.span<{
@@ -81,7 +85,7 @@ export const RestaurantBadge = styled.span<{
   align-items: center;
   margin-left: 6px;
   font-size: 12px;
-  padding: 2px;
+  padding: 2px 4px;
   border-radius: 4px;
   background-color: ${({ type }) => RestaurantBackgroundColors[type]};
   color: #fff;
@@ -89,26 +93,52 @@ export const RestaurantBadge = styled.span<{
 `;
 
 export const RouletteResult = styled.div`
+  margin-top: 12px;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-left: 16px;
-  border-radius: 4px;
-  border: 1px solid rgb(243, 245, 247);
+  justify-content: center;
   border-radius: 4px;
   width: 100%;
+  padding: 16px;
+`;
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 38px;
-    left: -10px;
-    border-right: 10px solid #111;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
+export const ResultMenus = styled.div<{ showResult: boolean }>`
+  display: flex;
+  align-items: center;
+  transition-property: transform, opacity;
+  transition-duration: 0.45s;
+  transition-timing-function: ease-in-out;
+  transform: translateY(30px);
+  opacity: 0;
+
+  ${({ showResult }) =>
+    showResult &&
+    css`
+      transform: translateY(0);
+      opacity: 1;
+    `}
+
+  & + & {
+    margin-top: 12px;
   }
+`;
+
+export const ResultMenuDescriptionTag = styled.span<{ color: string }>`
+  border-radius: 4px;
+  margin-right: 12px;
+  padding: 4px 8px;
+  background-color: ${({ color }) => color};
+  color: #fff;
+`;
+
+export const ResultMenuMap = styled.a.attrs({ target: '_blank' })`
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  background-color: #1a7cff;
 `;
 
 export const RouletteGameStarter = styled.div`
@@ -144,6 +174,10 @@ export const RouletteStartButton = styled(RouletteButton)`
   background-color: #2ac5c0;
   color: #fff;
   font-weight: bold;
+  &:disabled {
+    background-color: #ededed;
+    cursor: not-allowed;
+  }
 `;
 
 export const RouletteResetButton = styled(RouletteButton)`
