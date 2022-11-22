@@ -10,8 +10,9 @@ export const Header = styled.h1`
 `;
 
 export const GuideList = styled.ul`
-  list-style-position: inside;
+  list-style-position: outside;
   padding: 12px;
+  padding-left: 30px;
   border-radius: 4px;
   background-color: rgb(243, 245, 247);
   line-height: 24px;
