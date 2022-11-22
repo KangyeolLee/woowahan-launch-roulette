@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const RadioBoxWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-FIT, minmax(20%, auto));
+  grid-row-gap: 8px;
+  justify-items: center;
   padding: 12px;
   background-color: rgb(243, 245, 247);
   border-radius: 4px;
@@ -15,6 +17,7 @@ export const RadioBoxWrapper = styled.div`
 export const RadioBoxLabel = styled.label`
   display: flex;
   gap: 5px;
+  min-width: 65px;
 
   > span {
     display: flex;
