@@ -18,7 +18,7 @@ export const Restaurant = Object.freeze({
 } as const);
 
 export const getRestaurants = async () => {
-  const response = await fetch(`http://localhost:5000`);
+  const response = await fetch(`https://o637un.deta.dev`);
   const result = await response.json();
   return result.records as { fields: RestaurantType }[];
 };
