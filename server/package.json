@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec node --loader ts-node/esm src/app.ts",
     "build": "tsc",
-    "start": "node build/app.ts"
+    "start": "node build/src/app.js"
   },
   "author": "KG",
   "license": "ISC",
