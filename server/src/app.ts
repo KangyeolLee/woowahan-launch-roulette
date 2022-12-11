@@ -2,8 +2,6 @@ import express, { Application, Request, Response } from 'express';
 import fetch from 'node-fetch';
 import 'dotenv/config';
 
-const app: Application = express();
-
 const { API_SERVER_DOMAIN, API_KEY } = process.env;
 
 class App {
