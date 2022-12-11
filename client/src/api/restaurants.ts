@@ -18,7 +18,9 @@ export const Restaurant = Object.freeze({
 } as const);
 
 export const getRestaurants = async () => {
-  const response = await fetch(`https://o637un.deta.dev`);
+  const response = await fetch(
+    `https://port-0-woowahan-launch-roulette-13dq2flbjclqg9.gksl2.cloudtype.app/`
+  );
   const result = await response.json();
   return result.records as { fields: RestaurantType }[];
 };
