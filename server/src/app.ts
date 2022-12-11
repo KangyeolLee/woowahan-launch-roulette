@@ -40,7 +40,10 @@ class App {
     return async (req: Request, res: Response) => {
       const result = await this.getRestaurants();
       res
-        .header('Access-Control-Allow-Origin', 'http://localhost:3000')
+        .header(
+          'Access-Control-Allow-Origin',
+          'https://woowahan-lunch-roulette.netlify.app'
+        )
         .json(result);
     };
   }
